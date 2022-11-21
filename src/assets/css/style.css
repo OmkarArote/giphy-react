@@ -1,0 +1,10 @@
+.fix-img-size {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+}
+.fix-img-size-model {
+    height: 300px;
+    width: 400px;
+    object-fit: cover;
+}
