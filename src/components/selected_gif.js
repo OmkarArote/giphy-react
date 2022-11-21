@@ -23,23 +23,25 @@ class SELETED_GIF extends React.Component {
     };
     render() {
         return (
-            <div>
-                <h3>Selected Gif's & Comments</h3>
-                <hr />
-                <div className='row'>
-                    {this.state.gifSelected.map(data => (
-                        <div className='col-12 mb-3'>
-                            <Card>
-                                <Card.Img variant="top" src={data.url} />
-                                <Card.Body>
-                                    <Card.Title>Comment:</Card.Title>
-                                    <Card.Text>
-                                        {data.comment}
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </div>
-                    ))}
+            <div className='border rounded'>
+                <div className='m-4'>
+                    <h3>Selected Gif's & Comments</h3>
+                    <hr />
+                    <div className='row'>
+                        {this.state.gifSelected.map(data => (
+                            <div className='col-12 mb-3' key={data.id}>
+                                <Card>
+                                    <Card.Img variant="top" src={data.url} />
+                                    <Card.Body>
+                                        <Card.Title>Comment:</Card.Title>
+                                        <Card.Text>
+                                            {data.comment}
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         );
