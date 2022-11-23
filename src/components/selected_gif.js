@@ -5,10 +5,11 @@ import { Card, Badge } from 'react-bootstrap';
 
 class SELETED_GIF extends React.Component {
     render() {
+        console.log(this.props.data)
         return (
             <div className='border rounded'>
                 <div className='m-4'>
-                    <h4>Selected Gif's & Comments <Badge bg="secondary">{this.props.data.length}</Badge></h4>
+                    <h4>Selected Gif's & Comments <Badge bg="info">{this.props.data.length}</Badge></h4>
                     <hr />
                     <div className='row'>
                         {this.props.data.map(data => (

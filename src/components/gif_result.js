@@ -20,8 +20,8 @@ class GIF_RESULT extends React.Component {
         this.state = {
             showModle: false,
             gifSrcUrl: '',
-            comment : '',
-            id : '',
+            comment: '',
+            id: '',
             gifTrendingResponse: [],
             gifCommentResponse: []
         };
@@ -30,7 +30,7 @@ class GIF_RESULT extends React.Component {
         this.setState({ showModle: true })
     }
     handleSubmit = () => {
-        if(this.state.comment === '' || this.state.url === '' || this.state.id === ''){
+        if (this.state.comment === '' || this.state.url === '' || this.state.id === '') {
             toast.error("Field is empty", {
                 position: toast.POSITION.BOTTOM_RIGHT,
                 className: 'foo-bar'
@@ -43,7 +43,7 @@ class GIF_RESULT extends React.Component {
             }
             this.state.gifCommentResponse.push(comment_user);
             console.log(this.state.gifCommentResponse);
-            this.setState({id : '', comment : '', gifSrcUrl : ''})
+            this.setState({ id: '', comment: '', gifSrcUrl: '' })
             this.handleModleClose()
         }
     }
@@ -71,13 +71,13 @@ class GIF_RESULT extends React.Component {
                             <hr />
                             <div className='row'>
                                 {this.props.data.data.map(datas => (
-                                    <div className='col-md-4 col-sm-12 col-12 mb-4' id={datas.images.original.url} key={datas.id}>
-                                        <Image className='fix-img-size' src={datas.images.original.url} 
-                                        onClick={async () => {
-                                            await this.setState({ gifSrcUrl: datas.images.original.url, id : datas.id })
-                                            // console.log({url : this.state.gifSrcUrl, id : this.state.id})
-                                            this.handleModleOpen()
-                                        }} rounded></Image>
+                                    <div className='col-md-4 col-sm-12 col-12 mb-4' id={datas.id} key={datas.id}>
+                                        <Image className='fix-img-size' src={datas.images.original.url}
+                                            onClick={async () => {
+                                                await this.setState({ gifSrcUrl: datas.images.original.url, id: datas.id })
+                                                // console.log({url : this.state.gifSrcUrl, id : this.state.id})
+                                                this.handleModleOpen()
+                                            }} rounded></Image>
                                     </div>
                                 ))}
                             </div>
@@ -85,19 +85,19 @@ class GIF_RESULT extends React.Component {
                             <hr />
                             <div className='row'>
                                 {this.state.gifTrendingResponse.map(datas => (
-                                    <div className='col-md-4 col-sm-12 col-12 mb-4' id={datas.images.original.url} key={datas.id}>
-                                        <Image className='fix-img-size' src={datas.images.original.url} 
-                                        onClick={async () => {
-                                            await this.setState({ gifSrcUrl: datas.images.original.url, id : datas.id })
-                                            // console.log({url : this.state.gifSrcUrl, id : this.state.id})
-                                            this.handleModleOpen()
-                                        }} rounded></Image>
+                                    <div className='col-md-4 col-sm-12 col-12 mb-4' id={datas.id} key={datas.id}>
+                                        <Image className='fix-img-size' src={datas.images.original.url}
+                                            onClick={async () => {
+                                                await this.setState({ gifSrcUrl: datas.images.original.url, id: datas.id })
+                                                // console.log({url : this.state.gifSrcUrl, id : this.state.id})
+                                                this.handleModleOpen()
+                                            }} rounded></Image>
                                     </div>
                                 ))}
                             </div>
                             <Modal show={this.state.showModle} onHide={this.handleModleClose}>
                                 <Modal.Header closeButton>
-                                    <Modal.Title>Selected Image: <span>{this.state.id}</span></Modal.Title>
+                                    <Modal.Title className='h5'>Selected Image: <span className='h6 text-info'>{this.state.id}</span></Modal.Title>
                                 </Modal.Header>
                                 <Modal.Body>
                                     <div className='m-2'>
@@ -106,7 +106,7 @@ class GIF_RESULT extends React.Component {
                                     </div>
                                 </Modal.Body>
                                 <Modal.Footer>
-                                    <Button variant="primary" onClick={() => { this.handleSubmit() }}>
+                                    <Button variant="info" onClick={() => { this.handleSubmit() }}>
                                         Submit
                                     </Button>
                                 </Modal.Footer>
@@ -115,7 +115,7 @@ class GIF_RESULT extends React.Component {
                     </div>
                 </div>
                 <div className='col-md-4 col-sm-12 col-12 mb-5'>
-                    <SELETED_GIF data={this.state.gifCommentResponse}/>
+                    <SELETED_GIF data={this.state.gifCommentResponse} />
                 </div>
             </div>
         );

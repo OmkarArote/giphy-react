@@ -10,7 +10,7 @@ import GIF_RESULT from './gif_result';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 
-class SEARCHBAR extends React.Component {
+class SEARCHBAR extends React.Component { 
     constructor(props) {
         super(props);
         this.state = {
@@ -21,7 +21,7 @@ class SEARCHBAR extends React.Component {
                     [
                         {
                             type: "gif",
-                            id: 0,
+                            id: 1,
                             url: "https://www.memecreator.org/static/images/memes/5321042.jpg",
                             images: {
                                 original: {
@@ -62,7 +62,7 @@ class SEARCHBAR extends React.Component {
                     <div className='container'>
                         <div className="input-group p-3">
                             <input onChange={e => this.setState({ searhInput: e.target.value })} value={this.state.searhInput} type="text" className="form-control" placeholder="Search For GIF's !!!" aria-label="Recipient's username" aria-describedby="button-addon2" />
-                            <button onClick={() => { this.handleSearhButton() }} className="btn btn-dark" type="button" id="button-addon2">Search</button>
+                            <button onClick={() => { this.handleSearhButton() }} className="btn btn-info" type="button" id="button-addon2">Search</button>
                         </div>
                     </div>
                 </nav>
